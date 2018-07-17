@@ -1,10 +1,10 @@
 $(function () {
     console.log('Content script started');
     if(typeof angular == 'undefined') {
-        alert('angular not working  for extension');
+        //alert('angular not working  for extension');
     }
     else {
-        alert('angular working');
+        //alert('angular working');
     }
 
     const STATES = {
@@ -38,7 +38,7 @@ $(function () {
             
             if (state !== STATES.LEARNING) {
                 myAlert = 'current state is: ' +  state + ' and changing to '+ STATES.LEARNING;
-                alert(myAlert);
+                //alert(myAlert);
                 state = STATES.LEARNING;
                 calcActive = false;
                 //clearVals();
@@ -46,7 +46,7 @@ $(function () {
             else {
                 //If a calculator appears in this learning session, apply fix
                 if (!calcActive && !$("[ng-show='calculator&&calculator.grade==6']").hasClass('ng-hide')) {
-                    alert('detected active calculator in learning session! attaching fix to calc popup button click...');
+                    //alert('detected active calculator in learning session! attaching fix to calc popup button click...');
                     calcActive = true;
                     
                     $("[ng-click='popCalculatorG6($event)']").click(function () {
@@ -213,7 +213,7 @@ $(function () {
             if (state !== STATES.PROFICIENCY) {
                 calcActive =false;
                 myAlert = 'current state is: ' +  state + ' and changing to '+ STATES.PROFICIENCY;
-                alert(myAlert);
+                //alert(myAlert);
             }
             state = STATES.PROFICIENCY;
         }
@@ -222,7 +222,7 @@ $(function () {
             if (state !== STATES.OTHER) {
                 calcActive = false;
                 myAlert = 'current state is: ' +  state + ' and changing to '+ STATES.OTHER;
-                alert(myAlert);
+                //alert(myAlert);
             }
             state = STATES.OTHER;
         }
