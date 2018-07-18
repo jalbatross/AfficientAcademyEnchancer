@@ -10,5 +10,5 @@ Features:
 
 This product is for use with Afficient Math located at https://math.afficienta.com
 
-Available at:
+Available for free at:
 https://chrome.google.com/webstore/detail/afficient-academy-enhance/oiaikmfjhnbpmnlmijlillfnkkbmgbjo
