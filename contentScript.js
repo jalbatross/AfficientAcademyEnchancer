@@ -75,8 +75,7 @@ $(function () {
             //If a calculator appears in this learning session and the fix hasn't been applied yet,
             //apply it
             else if (!calcFixApplied && !$("[ng-show='calculator&&calculator.grade==6']").hasClass('ng-hide')) {
-                
-
+            
                 //Set the fix to be applied upon clicking the calculator button for the first time
                 $("[ng-click='popCalculatorG6($event)']").click(function () {
                     let newScript = document.createElement('script');
@@ -92,6 +91,8 @@ $(function () {
                     document.head.appendChild(newScript);
 
                     calcFixApplied = true;
+
+                    
                 });
 
             }
@@ -192,9 +193,10 @@ $(function () {
             //Do nothing if the calc screen input is blank
             
             if (calcScreen.value == "") {
-                calcScreen.value = $("#calcScreen").attr("placeholder");
+                calcScope.calcClear();
                 return;
             }
+            
 
             //Do strange % operation (not modulus) if there is a % in the input
             if (-1 !== calcScreen.value.indexOf("%")) {
@@ -205,13 +207,18 @@ $(function () {
             var result = "";
             try {
                 result = math.format(math.eval(calcScreen.value), { precision: 14 });
+
+                if (result === calcScreen.value) {
+                    return;
+                }
+                
                 historyId++;
                 $("#history").append("<li class='list-group-item' id='history-" + historyId + "'>" + calcScreen.value + "</li>");
-                $("#calcScreen").val("").attr("placeholder", result);
+                calcScreen.value = result;
                 $("#history-" + historyId).append(" = " + result);
-                calcScope.histDisable = false;
             }
             catch(e) {
+                console.log('err is: ', e);
                 calcScreen.value = "ERROR";
             }
         };
