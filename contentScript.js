@@ -53,7 +53,9 @@ $(function () {
                     //Remove "function() {" from the beginning of scriptFunction and the ending "}" from the end of scriptFunction
                     //so that it can be properly used in <script> tags
                     let code = calcFixScriptFunction.toString();
-                    code = code.substring(12, code.length - 1);
+                    let startIndex = code.indexOf("{") + 1;
+                    let endIndex = code.lastIndexOf("}");
+                    code = code.substring(startIndex, endIndex);
                     newScript.innerHTML = code;
 
                     //Append to DOM
@@ -84,7 +86,9 @@ $(function () {
                     //Remove "function() {" from the beginning of scriptFunction and the ending "}" from the end of scriptFunction
                     //so that it can be properly used in <script> tags
                     let code = calcFixScriptFunction.toString();
-                    code = code.substring(12, code.length - 1);
+                    let startIndex = code.indexOf("{") + 1;
+                    let endIndex = code.lastIndexOf("}");
+                    code = code.substring(startIndex, endIndex);
                     newScript.innerHTML = code;
 
                     //Append to DOM
@@ -105,19 +109,25 @@ $(function () {
                 
             }
             else if ($('[ng-click="go()"]').length > 0) {
+
+                //Remove previous if needed
+                if ($("#"+startFixScriptId).length >= 1) {
+                    $("#"+startFixScriptId).remove();
+                }
                 let newScript = document.createElement('script');
                 newScript.setAttribute("id", startFixScriptId );
 
                 //Remove "function() {" from the beginning of scriptFunction and the ending "}" from the end of scriptFunction
                 //so that it can be properly used in <script> tags
                 let code = startButtonFixFunction.toString();
-                code = code.substring(12, code.length - 1);
+                let startIndex = code.indexOf("{") + 1;
+                let endIndex = code.lastIndexOf("}");
+                code = code.substring(startIndex, endIndex);
+                newScript.innerHTML = code;
 
                 newScript.innerHTML = code;
                 //Append to DOM
                 document.head.appendChild(newScript);
-
-                startFixApplied = true;
             }
         }
     };
