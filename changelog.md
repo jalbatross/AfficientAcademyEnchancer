@@ -11,8 +11,8 @@
 * Fixed a memory leak with the calculator fix script. Before, clicking on the calculator popup button appended 
   a new script to the DOM head every time which caused seemed to be a cause of issues and delayed performance for
   users. The calculator fix is now applied upon entering any problem set with a calculator and is no longer 
-* Fixed a bug where the calculator would not be applied for successive proficiency/afficiency sessions.
   dependent on whether or not the user clicks on the calculator popup button.
+* Fixed a bug where the calculator would not be applied for successive proficiency/afficiency sessions.
 * Additional documentation and organization of the [content script](/contentScript.js).
 * Deleted some unnecessary files and added Node modules for Babel + React.
 
