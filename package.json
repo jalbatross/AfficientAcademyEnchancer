@@ -1,0 +1,26 @@
+{
+  "name": "afficient-academy-enhancer",
+  "version": "1.0.0",
+  "description": "A Google Chrome extension that provides various bug fixes and UI enhancements to Afficient Math.",
+  "main": "contentScript.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jalbatross/afficient-academy-enhancer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jalbatross/afficient-academy-enhancer/issues"
+  },
+  "homepage": "https://github.com/jalbatross/afficient-academy-enhancer#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react": "^6.24.1"
+  }
+}
